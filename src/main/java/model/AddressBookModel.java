@@ -16,8 +16,10 @@ public class AddressBookModel {
     public AddressBook findByName(String name){
         AddressBook obj = new AddressBook();
         for (String key : contactMap.keySet()) {
-            obj.setName(contactMap.get(name).getName());
-            obj.setPhoneNumber(contactMap.get(name).getPhoneNumber());
+            if (contactMap.containsKey(name)) {
+                obj.setName(contactMap.get(key).getName());
+                obj.setPhoneNumber(contactMap.get(key).getPhoneNumber());
+            }
         }
         return obj;
     }
