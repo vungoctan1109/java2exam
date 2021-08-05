@@ -38,8 +38,11 @@ public class AddressBookController {
 
     public void display() {
         Map<String, AddressBook> addressBookMap = addressBookModel.findAll();
-        for (int i = 0; i < addressBookMap.size(); i++) {
-            System.out.println(addressBookMap.get(i).toString());
+        for (String key: addressBookMap.keySet()) {
+            System.out.println("Address Book");
+            System.out.println("Contact Name    |    Phone Number    ");
+            System.out.printf("%s   |   %s",addressBookMap.get(key).getName(), addressBookMap.get(key).getPhoneNumber());
+            System.out.println("\n");
         }
     }
 }
